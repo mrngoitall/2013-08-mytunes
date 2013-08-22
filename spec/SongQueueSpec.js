@@ -13,6 +13,11 @@ describe('SongQueue', function() {
       url: '/test/testsong2.mp3',
       title:'test song 2'
     };
+    songData3 = {
+      artist: 'data',
+      url: '/test/testsong3.mp3',
+      title:'test song 3'
+    };
   });
 
   afterEach(function() {
@@ -85,9 +90,22 @@ describe('SongQueue', function() {
       var songQueue = new SongQueue([songData1, songData2]);
       var song1 = songQueue.at(0);
       expect(songQueue.length).toEqual(2);
-      songQueue.at(1).trigger('dequeue');
+      songQueue.at(1).dequeue();
       expect(songQueue.length).toEqual(1);
       expect(songQueue.at(0)).toEqual(song1);
+    });
+    it('removes the selected song from the queue', function() {
+      var songQueue = new SongQueue([songData1, songData2, songData3]);
+      var song1 = songQueue.at(0);
+      var song2 = songQueue.at(1);
+      var song3 = songQueue.at(2);
+      expect(songQueue.length).toEqual(3);
+      songQueue.at(1).dequeue();
+      expect(songQueue.length).toEqual(2);
+      expect(songQueue.at(1)).toEqual(song3);
+      songQueue.at(1).dequeue();
+      expect(songQueue.length).toEqual(1);
+      expect(songQueue.at(1)).toEqual(null);
     });
   });
 });
