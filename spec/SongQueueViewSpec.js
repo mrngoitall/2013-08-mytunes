@@ -34,5 +34,4 @@ describe('SongQueueView', function() {
     view.collection.pop();
     expect(view.render.callCount).toEqual(2);
   });
-
 });

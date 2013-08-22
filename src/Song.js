@@ -1,6 +1,10 @@
 var Song = Backbone.Model.extend({
+  initialize: function() {
+    this.set('counter',0);
+  },
 
   play: function(){
+    this.set('counter',(this.get('counter')+1));
     this.trigger('play', this);
   },
 
