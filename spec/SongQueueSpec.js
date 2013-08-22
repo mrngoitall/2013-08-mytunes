@@ -36,7 +36,7 @@ describe('SongQueue', function() {
       });
     });
   });
-
+debugger;
   describe('when a song ends', function() {
     it('removes the song from the queue', function() {
       var songQueue = new SongQueue([songData1, songData2]);
