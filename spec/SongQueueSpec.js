@@ -36,7 +36,7 @@ describe('SongQueue', function() {
       });
     });
   });
-debugger;
+
   describe('when a song ends', function() {
     it('removes the song from the queue', function() {
       var songQueue = new SongQueue([songData1, songData2]);
@@ -63,7 +63,6 @@ debugger;
       });
     });
   });
-
   describe('when a song is dequeued', function() {
     it('removes the song', function() {
       removeSpy = spyOn(SongQueue.prototype, 'remove').andCallThrough();
